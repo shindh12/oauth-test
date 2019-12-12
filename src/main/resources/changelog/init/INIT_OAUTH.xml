@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="INIT_OAUTH_0001" author="dong.dong">
+        <insert tableName="OAUTH_CLIENT_DETAILS">
+            <column name="CLIENT_ID" value="dong" />
+            <column name="RESOURCE_IDS" value="test" />
+            <column name="CLIENT_SECRET" value="$2a$10$jE7IzcNQRqxBWTfYcxd/BOZ8mBGrDcTVDzdiTKBydnxxQWedPgyPq"/>
+            <column name="SCOPE" value="all" />
+            <column name="AUTHORIZED_GRANT_TYPES" value="client_credentials" />
+            <column name="WEB_SERVER_REDIRECT_URI" value="" />
+            <column name="AUTHORITIES" value="null" />
+            <column name="ACCESS_TOKEN_VALIDITY" value="30" />
+            <column name="REFRESH_TOKEN_VALIDITY" value="100" />
+            <column name="ADDITIONAL_INFORMATION" value="null" />
+            <column name="AUTOAPPROVE" value="true" />
+        </insert>
+        <insert tableName="OAUTH_CLIENT_DETAILS">
+            <column name="CLIENT_ID" value="dong2" />
+            <column name="RESOURCE_IDS" value="test" />
+            <column name="CLIENT_SECRET" value="$2a$10$jE7IzcNQRqxBWTfYcxd/BOZ8mBGrDcTVDzdiTKBydnxxQWedPgyPq"/>
+            <column name="SCOPE" value="all" />
+            <column name="AUTHORIZED_GRANT_TYPES" value="client_credentials" />
+            <column name="WEB_SERVER_REDIRECT_URI" value="" />
+            <column name="AUTHORITIES" value="null" />
+            <column name="ACCESS_TOKEN_VALIDITY" value="30" />
+            <column name="REFRESH_TOKEN_VALIDITY" value="100" />
+            <column name="ADDITIONAL_INFORMATION" value="null" />
+            <column name="AUTOAPPROVE" value="true" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>

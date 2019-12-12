@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="CREATE_OAUTH_0001" author="dong.dong">
+        <createTable tableName="OAUTH_CLIENT_DETAILS" remarks="OauthClientDetails">
+            <column name="CLIENT_ID" type="varchar(256)" remarks="클라이언트 ID / Client Id">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="RESOURCE_IDS" type="varchar(256)" remarks="리소스 IDS / Resource Ids">
+            </column>
+            <column name="CLIENT_SECRET" type="varchar(256)" remarks="클라이언트 SECRET / Client Secret">
+            </column>
+            <column name="SCOPE" type="varchar(256)" remarks="스코프 / Scope">
+            </column>
+            <column name="AUTHORIZED_GRANT_TYPES" type="varchar(256)" remarks="인가 유형 / Authorized Grant Type">
+            </column>
+            <column name="WEB_SERVER_REDIRECT_URI" type="varchar(256)" remarks="리다이렉트 URI / Redirect Uri">
+            </column>
+            <column name="AUTHORITIES" type="varchar(256)" remarks="권한 / Authorities">
+            </column>
+            <column name="ACCESS_TOKEN_VALIDITY" type="bigint" remarks="액세스 토큰 검증 / Access Token Validity"/>
+            <column name="REFRESH_TOKEN_VALIDITY" type="bigint" remarks="리프레시 토큰 검증 / Refresh Token Validity"/>
+            <column name="ADDITIONAL_INFORMATION" type="varchar(256)" remarks="기타 정보 / Additional Information">
+            </column>
+            <column name="AUTOAPPROVE" type="varchar(256)" remarks="자동 허가 여부 / Auto Approve">
+            </column>
+        </createTable>
+
+        <createTable tableName="OAUTH_ACCESS_TOKEN" remarks="OauthAccessToken">
+            <column name="TOKEN_ID" type="varchar(256)" remarks="액세스 토큰 ID/ Access Token ID">
+            </column>
+            <column name="TOKEN" type="longvarbinary" remarks="액세스 토큰 / Access Token">
+            </column>
+            <column name="AUTHENTICATION_ID" type="varchar(256)" remarks="인증 ID / Authentication ID">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="USER_NAME" type="varchar(256)" remarks="사용자명 / Resource Owner Name">
+            </column>
+            <column name="CLIENT_ID" type="varchar(256)" remarks="클라이언트 ID / Client ID">
+            </column>
+            <column name="AUTHENTICATION" type="longvarbinary" remarks="인증 값 / Authentication">
+            </column>
+            <column name="REFRESH_TOKEN" type="varchar(256)" remarks="리프레시 토큰 / Refresh Token">
+            </column>
+        </createTable>
+
+        <createTable tableName="OAUTH_APPROVALS" remarks="OauthApprovals">
+            <column name="USER_NAME" type="varchar(256)" remarks="사용자명 / Resource Owner Name">
+            </column>
+            <column name="CLIENT_ID" type="varchar(256)" remarks="클라이언트 ID / Client ID">
+            </column>
+            <column name="SCOPE" type="varchar(256)" remarks="스코프 / Scope">
+            </column>
+            <column name="STATUS" type="varchar(10)" remarks="스테이터스 / Status">
+            </column>
+            <column name="EXPIRES_AT" type="timestamp" remarks="파기 일시 / Expires At">
+            </column>
+            <column name="LAST_MODIFIED_AT" type="timestamp" remarks="재허가 일시 / Last Modified At">
+            </column>
+        </createTable>
+
+        <createTable tableName="OAUTH_REFRESH_TOKEN" remarks="OauthRefreshToken">
+            <column name="TOKEN_ID" type="varchar(256)" remarks="리프레시 토큰 ID/ Refresh Token ID">
+            </column>
+            <column name="TOKEN" type="longvarbinary" remarks="리프레시 토큰 / Refresh Token">
+            </column>
+            <column name="AUTHENTICATION" type="longvarbinary" remarks="인증 값 / Authentication">
+            </column>
+        </createTable>
+
+        <createTable tableName="OAUTH_CODE" remarks="OauthCode">
+            <column name="CODE" type="varchar(256)" remarks="코드 / Code">
+            </column>
+            <column name="AUTHENTICATION" type="longvarbinary" remarks="인증 값 / Authentication">
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

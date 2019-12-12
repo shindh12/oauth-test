@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <!-- Utilized Property by DBMS -->
+    <!-- now -->
+    <property name="now" value="now()" dbms="h2" />
+
+    <!-- inputable minimum timestamp -->
+    <property name="firstdate" value="1970-01-01T00:00:00" dbms="h2" />
+
+    <!-- inputable maximum timestamp -->
+    <property name="lastdate" value="9999-01-01T00:00:00" dbms="h2" />
+
+    <!-- isdp-admin-core :: DDL-->
+    <!-- create -->
+    <include file="changelog/create/CREATE_OAUTH.xml" relativeToChangelogFile="true" />
+
+    <!-- init data -->
+    <include file="changelog/init/INIT_OAUTH.xml" relativeToChangelogFile="true" />
+
+</databaseChangeLog>
